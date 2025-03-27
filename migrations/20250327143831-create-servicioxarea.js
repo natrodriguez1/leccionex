@@ -2,18 +2,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('areas', {
-      id_area: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
+    await queryInterface.createTable('servicioxareas', {
+      id_servicio: {
         type: Sequelize.INTEGER
       },
-      nombre: {
-        type: Sequelize.STRING
+      id_area: {
+        type: Sequelize.INTEGER
       },
-      descripcion: {
-        type: Sequelize.TEXT
+      servicios_id_servicios: {
+        type: Sequelize.INTEGER
+      },
+      area_id_area: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -26,6 +26,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('areas');
+    await queryInterface.dropTable('servicioxareas');
   }
 };

@@ -10,8 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-    }
+      models.area.belongsToMany(models.servicio, { through:
+        'servicioxarea', foreignKey: "id_area" } );
+        }
   }
   area.init({
     id_area: DataTypes.INTEGER,
@@ -20,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'area',
+    tableName: 'areas',
   });
   return area;
 };
